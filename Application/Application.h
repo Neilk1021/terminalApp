@@ -23,6 +23,7 @@ class Application {
     public:
         Application(Application &other) = delete;
         static Application *GetInstance();
+        static void printNum(const std::string& ExamplePrint, unsigned int exampleNum, unsigned int exampleNum2);
 
 };
 

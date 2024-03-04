@@ -28,7 +28,6 @@ void TextInput::refresh(unsigned int checkVal, HANDLE hConsole) {
 #ifdef __APPLE__
 void TextInput::refresh(unsigned int checkVal) {
     if(checkVal == val){
-
         const std::string & concat = "\r\x1b[" + std::to_string(Color) +";" +
                 std::to_string(ColorHighlight) + "m " + label + info + " \x1b[0m  \n";
         std::cout << concat << std::flush << std::endl;
@@ -42,6 +41,7 @@ void TextInput::refresh(unsigned int checkVal) {
 #endif
 
 void TextInput::addChar(char c) {
+    if(info.empty() && c == ' ') { return;}
     info += c;
 }
 
